@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.jpg">
+    <script src="https://kit.fontawesome.com/33b7a3e375.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="chat hide">
+            <div class="chat-header">
+                <h1>Chat</h1>
+                <a href="index.html"> <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                <p class="chat-header__username"></p>
+                <p class="chat-header__delete">Delete messages</p>
+            </div>
+            <div class="chat-desktop">
+            </div>
+            <div class="chat-bottom">
+                <div class="chat-bottom__input">
+                    <input type="text" class="mess_input" placeholder="Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+            </div>
+        </div>
+        <div class="popup">
+            <div class="box-name">
+                <h1>Welcome</h1>
+                <input type="text" class="box-name__username" placeholder="Name">
+                <p class="box-name__emptyName">Enter your Name!</p>
+                <button class="box-name__button">Join the chat</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
