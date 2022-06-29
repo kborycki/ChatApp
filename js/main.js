@@ -51,9 +51,14 @@ const keyEventPopup = (e) => {
 const sendMessage = () => {
   let message = messInput.value;
   const name = username.innerHTML;
+  const current = new Date();
+  const date = current.toLocaleDateString();
+  const time = current.toLocaleTimeString();
   firebase.database().ref("messages").push().set({
     sender: name,
     message: message,
+    date: date,
+    time: time,
   });
   messInput.value = "";
   desktop.scrollTo(0, desktop.scrollHeight);
@@ -63,13 +68,12 @@ firebase
   .database()
   .ref("messages")
   .on("child_added", function (snap) {
-    const current = new Date();
     desktop.innerHTML += `
     <div class="chat-desktop__message">
         <p class="chat-desktop__message-username">${snap.val().sender}</p>
         <p class="chat-desktop__message-text">${snap.val().message}</p>
-        <p class="chat-desktop__message-time">${current.toLocaleTimeString()}</p>
-        <p class="chat-desktop__message-date">${current.toLocaleDateString()}</p>
+        <p class="chat-desktop__message-time">${snap.val().time}</p>
+        <p class="chat-desktop__message-date">${snap.val().date}</p>
         </div>
     `;
   });
